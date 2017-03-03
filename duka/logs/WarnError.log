@@ -1,0 +1,42 @@
+07:05:38.374 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+07:05:38.696 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+07:05:42.067 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onStart method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFStart(OnLucky.java:92)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onStart(JForexUtilsStrategy.java:32)
+	at com.dukascopy.api.impl.execution.TaskStart.call(TaskStart.java:27)
+	at com.dukascopy.api.impl.execution.TaskStart.call(TaskStart.java:13)
+	at com.dukascopy.api.impl.connect.JFRunnableProcessor.onStart(JFRunnableProcessor.java:127)
+	at com.dukascopy.api.impl.connect.JForexTaskManager$1.call(JForexTaskManager.java:700)
+	at com.dukascopy.api.impl.connect.JForexTaskManager$1.call(JForexTaskManager.java:666)
+	at com.dukascopy.api.impl.execution.TaskCustom.call(TaskCustom.java:34)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+07:15:54.077 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+07:15:54.313 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+07:43:45.096 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+07:43:45.464 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+07:50:24.873 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05223 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:50:42.075 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05219 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:50:54.152 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05219 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:51:13.247 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05219 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:51:31.579 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05223 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:51:34.169 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05228 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:51:43.950 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05227 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:52:31.658 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05223 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:54:28.309 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05216 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:55:48.942 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05218 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:57:37.883 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05234 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+07:57:44.434 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05236 - Position #129645447, REASON: can't change stop loss price more than 1 times per second
+08:28:18.073 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.0523 - Position #129646179, REASON: can't change stop loss price more than 1 times per second
+09:01:06.802 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+09:01:07.204 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+09:42:45.571 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05159 - Position #129649412, REASON: can't change stop loss price more than 1 times per second
+09:46:17.894 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+09:46:18.202 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+10:46:48.732 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+10:46:49.062 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+11:26:36.844 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+11:26:37.158 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.

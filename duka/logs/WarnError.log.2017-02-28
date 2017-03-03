@@ -1,0 +1,247 @@
+00:33:18.417 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+00:33:18.757 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+00:33:22.807 ERROR com.dukascopy.api.impl.execution.TaskTick - Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:179)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+00:33:22.813 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:179)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+10:44:51.601 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+10:44:51.801 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+10:44:56.450 ERROR com.dukascopy.api.impl.execution.TaskTick - Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:202)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+10:44:56.457 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:202)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+11:04:09.700 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+11:04:09.993 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+11:04:13.720 ERROR com.dukascopy.api.impl.execution.TaskTick - Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:202)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+11:04:13.726 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: Index: 1, Size: 1
+java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at akatom.OnLucky.onJFTick(OnLucky.java:202)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+11:05:51.030 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+11:05:51.268 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+19:52:39.361 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:41.329 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:42.186 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:42.672 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:43.668 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:44.486 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:44.767 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:46.036 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:46.342 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:47.756 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:48.298 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06024 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:50.507 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:51.466 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06019 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:51.839 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06019 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:53.301 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06023 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:54.093 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:54.138 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06024 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:54.357 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06023 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:54.606 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06024 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:57.967 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:58.016 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:58.219 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:59.198 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:52:59.723 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:01.911 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:06.627 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:09.357 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:11.849 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:12.528 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:13.443 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:13.713 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:14.029 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:14.633 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:16.367 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:16.459 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:16.715 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:17.924 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:19.991 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:21.336 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:24.159 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:24.497 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:24.611 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:25.387 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:25.696 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:26.759 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:33.422 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:34.649 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:43.485 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:44.929 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:44.978 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:46.194 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:46.248 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:46.855 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:46.906 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:47.005 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:49.552 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:49.832 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:50.339 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:50.867 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:54.537 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:54.639 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:55.291 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:56.115 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:56.609 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:57.415 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:58.419 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:53:58.916 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:01.416 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:09.787 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:09.836 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:09.942 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:10.444 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:11.855 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:12.415 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:15.658 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:17.308 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:22.597 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:26.670 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:26.929 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:28.082 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06023 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:29.864 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06024 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:35.480 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:35.942 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06024 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:36.040 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:44.245 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:45.180 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:45.381 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:45.611 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06022 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:47.607 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0602 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:47.962 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06021 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:49.799 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:50.001 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:50.176 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06014 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:51.093 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:51.139 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:51.462 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:51.533 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:51.991 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06014 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:52.567 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:53.771 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:54.117 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:54.723 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:55.876 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06015 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:56.387 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06015 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:57.400 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:57.931 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:59.182 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:59.505 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:59.742 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:59.860 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06014 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:54:59.913 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:00.420 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:01.465 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:01.834 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:03.627 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:04.322 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:05.863 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:15.489 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:15.740 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:16.315 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0601 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:17.693 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06009 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:19.498 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06009 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:20.436 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06011 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:20.490 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:20.541 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:20.593 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06012 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:20.704 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06013 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:21.410 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06015 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:21.881 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06015 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:24.022 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:25.908 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06016 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:26.352 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:27.750 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06016 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:29.185 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:29.476 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06019 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:30.791 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06019 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:31.893 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06016 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:32.151 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:32.199 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06017 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:36.289 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06019 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:36.730 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06021 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:36.983 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:37.173 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:37.190 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:37.829 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:38.916 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06028 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:39.493 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:40.140 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:40.184 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06027 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:42.593 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:42.701 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:43.200 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:44.857 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06025 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:44.952 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06026 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:45.614 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06029 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:48.330 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:48.381 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:49.493 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:50.612 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:50.769 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:52.802 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:55.595 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:57.395 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:55:58.617 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.0603 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:56:01.066 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:56:16.623 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second
+19:56:22.166 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS BUY EUR/USD @MKT IF ASK => 1.06031 - Position #128738024, REASON: can't change stop loss price more than 1 times per second

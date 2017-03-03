@@ -1,0 +1,52 @@
+02:23:17.829 ERROR com.dukascopy.dds4.transport.client.TransportClient - Client disconnected, primary connection ping failed
+java.util.concurrent.TimeoutException: No response from server. Request: <HeartbeatRequestMessage(,synchRequestId=2294)>
+	at com.dukascopy.dds4.transport.client.TransportClient.controlSynchRequest(TransportClient.java:906)
+	at com.dukascopy.dds4.transport.client.TransportClient.pingIoSession(TransportClient.java:659)
+	at com.dukascopy.dds4.transport.client.TransportClient.pingPrimarySession(TransportClient.java:743)
+	at com.dukascopy.dds4.transport.client.TransportClient.pingConnection(TransportClient.java:714)
+	at com.dukascopy.dds4.transport.client.TransportClient.access$300(TransportClient.java:61)
+	at com.dukascopy.dds4.transport.client.TransportClient$1.run(TransportClient.java:332)
+	at java.lang.Thread.run(Thread.java:745)
+02:23:19.081 ERROR com.dukascopy.dds4.transport.client.ClientConnector - Primary connect call failed, address [d-ja-gva-121-130-118.dukascopy.com/194.8.15.118:10443]
+java.net.SocketException: Network is unreachable
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.mina.transport.socket.nio.SocketConnector.processSessions(SocketConnector.java:293)
+	at org.apache.mina.transport.socket.nio.SocketConnector.access$800(SocketConnector.java:53)
+	at org.apache.mina.transport.socket.nio.SocketConnector$Worker.run(SocketConnector.java:383)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:745)
+02:23:20.186 ERROR com.dukascopy.dds4.transport.client.ClientConnector - Primary connect call failed, address [d-ja-gva-121-130-118.dukascopy.com/194.8.15.118:10443]
+java.net.SocketException: Network is unreachable
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.mina.transport.socket.nio.SocketConnector.processSessions(SocketConnector.java:293)
+	at org.apache.mina.transport.socket.nio.SocketConnector.access$800(SocketConnector.java:53)
+	at org.apache.mina.transport.socket.nio.SocketConnector$Worker.run(SocketConnector.java:383)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:745)
+02:23:21.388 ERROR com.dukascopy.dds4.transport.client.ClientConnector - Primary connect call failed, address [d-ja-gva-121-130-118.dukascopy.com/194.8.15.118:10443]
+java.net.SocketException: Network is unreachable
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.mina.transport.socket.nio.SocketConnector.processSessions(SocketConnector.java:293)
+	at org.apache.mina.transport.socket.nio.SocketConnector.access$800(SocketConnector.java:53)
+	at org.apache.mina.transport.socket.nio.SocketConnector$Worker.run(SocketConnector.java:383)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:745)
+02:24:26.516 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+16:20:58.436 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+16:20:58.741 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+17:28:37.484 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+17:28:37.752 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+21:46:54.046 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05042 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+21:46:54.781 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05042 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+21:48:14.565 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05046 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+21:48:14.976 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05048 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+21:48:15.231 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05046 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+21:48:22.155 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05049 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+22:11:12.948 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05049 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+22:11:15.146 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05049 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+22:11:16.332 WARN  com.dukascopy.api.impl.connect.PlatformOrderImpl - Order REJECTED: STOP LOSS SELL EUR/USD @MKT IF BID <= 1.05049 - Position #129620010, REASON: can't change stop loss price more than 1 times per second
+22:41:49.202 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+22:41:49.474 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.

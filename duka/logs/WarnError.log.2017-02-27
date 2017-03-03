@@ -1,0 +1,114 @@
+00:53:02.607 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+00:53:02.883 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+22:50:45.704 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+22:50:46.103 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+22:50:57.712 ERROR com.dukascopy.api.impl.execution.TaskOnBar - 
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFBar(OnLucky.java:108)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onBar(JForexUtilsStrategy.java:61)
+	at com.dukascopy.api.impl.execution.TaskOnBar.postData(TaskOnBar.java:85)
+	at com.dukascopy.api.impl.execution.TaskOnBar.call(TaskOnBar.java:63)
+	at com.dukascopy.api.impl.execution.TaskOnBar.call(TaskOnBar.java:23)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+22:50:57.718 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onBar method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFBar(OnLucky.java:108)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onBar(JForexUtilsStrategy.java:61)
+	at com.dukascopy.api.impl.execution.TaskOnBar.postData(TaskOnBar.java:85)
+	at com.dukascopy.api.impl.execution.TaskOnBar.call(TaskOnBar.java:63)
+	at com.dukascopy.api.impl.execution.TaskOnBar.call(TaskOnBar.java:23)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:01:33.632 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+23:01:33.933 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+23:01:37.752 ERROR com.dukascopy.api.impl.execution.TaskTick - 
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:110)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:01:37.755 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:110)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:02:25.313 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+23:02:25.488 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+23:02:29.233 ERROR com.dukascopy.api.impl.execution.TaskTick - 
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:110)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:02:29.242 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:110)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:06:45.903 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+23:06:46.218 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+23:06:49.900 ERROR com.dukascopy.api.impl.execution.TaskTick - 
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:112)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:06:49.914 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:112)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:15:19.698 WARN  com.dukascopy.api.impl.connect.WLabelData - White Label Image is not received
+23:15:20.022 ERROR com.dukascopy.dds2.greed.market.LiveCurrencyMarketProcessor - Cannot create the LiveCurrencyMarketProcessor, the properties is null.
+23:15:23.746 ERROR com.dukascopy.api.impl.execution.TaskTick - 
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:112)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
+23:15:23.754 ERROR com.dukascopy.api.impl.connect.DCClientImpl$DefaultStrategyExceptionHandler - Exception thrown while running onTick method: null
+java.lang.NullPointerException
+	at akatom.OnLucky.onJFTick(OnLucky.java:112)
+	at com.jforex.programming.strategy.JForexUtilsStrategy.onTick(JForexUtilsStrategy.java:43)
+	at com.dukascopy.api.impl.execution.TaskTick.postData(TaskTick.java:67)
+	at com.dukascopy.api.impl.execution.AbstractPostDataTask.call(AbstractPostDataTask.java:43)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.runTask(ScienceThreadPoolExecutor.java:904)
+	at com.dukascopy.api.impl.execution.ScienceThreadPoolExecutor$Worker.run(ScienceThreadPoolExecutor.java:926)
+	at java.lang.Thread.run(Thread.java:745)
