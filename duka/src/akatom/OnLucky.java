@@ -9,6 +9,9 @@ import java.util.List;
 //import java.util.Optional;
 //import java.awt.Color;
 //import java.text.DecimalFormat;
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.util.concurrent.TimeUnit;
 
 //import java.util.function.Predicate;
 //import java.util.function.Consumer;
@@ -50,6 +53,7 @@ public class OnLucky extends JForexUtilsStrategy
 
     private long lastTickTime = 0;
     private double lastProfitLossInPips = 0;
+    private int counter = 0;
 
     @Override
     protected void onJFStart(final IContext context) throws JFException 
@@ -59,6 +63,7 @@ public class OnLucky extends JForexUtilsStrategy
         context.setSubscribedInstruments(java.util.Collections.singleton(instrument), true);
 
         lastTickTime = history.getLastTick(instrument).getTime();
+        lastProfitLossInPips = 0;
     }
 
     @Override
@@ -72,11 +77,13 @@ public class OnLucky extends JForexUtilsStrategy
 
         if (engine.getOrders().size() == 0)
         {
+            String label = getLabel(instrument);
+
             final OrderParams EURUSD_BUY = OrderParams
                 .forInstrument(Instrument.EURUSD)
                 .withOrderCommand(IEngine.OrderCommand.BUY)
                 .withAmount(0.01)
-                .withLabel("First_Buy")
+                .withLabel(label + "First_Buy")
                 .build();
 
             final SubmitParams submitEURUSD_BUY = SubmitParams
@@ -90,7 +97,7 @@ public class OnLucky extends JForexUtilsStrategy
                 .forInstrument(Instrument.EURUSD)
                 .withOrderCommand(OrderCommand.SELL)
                 .withAmount(0.01)
-                .withLabel("First_Sell")
+                .withLabel(label + "First_Sell")
                 .build();
 
             final SubmitParams submitEURUSD_SELL = SubmitParams
@@ -110,16 +117,18 @@ public class OnLucky extends JForexUtilsStrategy
             if (delta < startRate) 
             {
                 orderUtil.submitOrder(submitEURUSD_BUY);
+                lastProfitLossInPips = 0;
             }
             else
             {
                 orderUtil.submitOrder(submitEURUSD_SELL);
+                lastProfitLossInPips = 0;
             }
         }
 
         //============Trailing===============
 
-        double trailingStopRate = 4.9;  //optimize by abonacci style
+        double trailingStopRate = 4.9;  //to optimize by abonacci style
         double priceDistance = 0.00039; //idem
 
         if ((engine.getOrders().size() == 1) &&
@@ -144,7 +153,7 @@ public class OnLucky extends JForexUtilsStrategy
 
         //================Averaging=================
 
-        double averagingRate = -24.9; //optimize by abonacci style
+        double averagingRate = -24.9; //to optimize by abonacci style
 
         if ((engine.getOrders().size() == 1) &&
             (engine.getOrders().get(0).getProfitLossInPips() < averagingRate))
@@ -152,11 +161,13 @@ public class OnLucky extends JForexUtilsStrategy
             double amount = engine.getOrders().get(0).getAmount();
             double multiplier = 2.0;
 
+            String label = getLabel(instrument);
+
             final OrderParams EURUSD_BUY_A = OrderParams
                     .forInstrument(Instrument.EURUSD)
                     .withOrderCommand(OrderCommand.BUY)
                     .withAmount(amount * multiplier)
-                    .withLabel("A_Buy")
+                    .withLabel(label + "A_Buy")
                     .build();
 
             final SubmitParams submitEURUSD_BUY_A = SubmitParams
@@ -170,7 +181,7 @@ public class OnLucky extends JForexUtilsStrategy
                     .forInstrument(Instrument.EURUSD)
                     .withOrderCommand(OrderCommand.SELL)
                     .withAmount(amount * multiplier)
-                    .withLabel("A_Sell")
+                    .withLabel(label + "A_Sell")
                     .build();
 
             final SubmitParams submitEURUSD_SELL_A = SubmitParams
@@ -196,23 +207,35 @@ public class OnLucky extends JForexUtilsStrategy
         {
             List<IOrder> mergeableOrders = Arrays.asList(engine.getOrders().get(0), engine.getOrders().get(1));
 
+            String label = getLabel(instrument);
+
             MergeParams merge_buy = new MergeParams
-                    .Builder("Merged_Buy", mergeableOrders)
+                    .Builder(label + "_Merged_Buy", mergeableOrders)
                     .build();
 
             MergeParams merge_sell = new MergeParams
-                    .Builder("Merged_Sell", mergeableOrders)
+                    .Builder(label + "_Merged_Sell", mergeableOrders)
                     .build();
 
             if ((engine.getOrders().get(0).isLong()) && (engine.getOrders().get(1).isLong()))
             {
                 orderUtil.mergeOrders(merge_buy);
+                lastProfitLossInPips = 0;
             }
             if (!(engine.getOrders().get(0).isLong()) && !(engine.getOrders().get(1).isLong()))
             {
                 orderUtil.mergeOrders(merge_sell);
+                lastProfitLossInPips = 0;
             }
         }
+    }
+
+    private String getLabel(Instrument instrument)
+    {
+        String label = instrument.name();
+        label = label + (counter++);
+        label = label.toUpperCase();
+        return label;
     }
 
     @Override
