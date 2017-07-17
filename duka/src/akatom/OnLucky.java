@@ -1,11 +1,10 @@
 package akatom;
 
-/**
- * Created by jerzy on 27/02/17.
- */
-
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import com.dukascopy.api.*;
 import com.dukascopy.api.IAccount;
@@ -28,373 +27,343 @@ import com.jforex.programming.order.task.params.basic.SubmitParams;
 import com.jforex.programming.strategy.JForexUtilsStrategy;
 
 @RequiresFullAccess
-public class OnLucky extends JForexUtilsStrategy 
+public class OnLucky extends JForexUtilsStrategy
 {
     private IEngine engine;
     private IHistory history;
+    private IConsole console;
+    private IContext context;
+    private IAccount account;
 
-    private long lastTickTime = 0;
-    private double lastProfitLossInPips_EURUSD = 0;
-    private double lastProfitLossInPips_GBPUSD = 0;
-    private double baseAmound = 0.01;
     private int counter = 0;
+    long lastTickTime = 0;
 
-    @Override
-    protected void onJFStart(final IContext context) throws JFException 
+    public Set<Instrument> instruments = new HashSet<Instrument>() 
+    {{
+        add(Instrument.EURUSD);
+        add(Instrument.GBPUSD);
+        add(Instrument.EURJPY);
+        //add(Instrument.GBPCHF);
+        //add(Instrument.XAUUSD);
+        //add(Instrument.XAGUSD);
+    }};
+    
+    // minimum order amount is 1000 units, except for XAUUSD and XAGUSD which is 1 and 50 respectively
+    private double getMinAmount(Instrument instrument)
     {
-        engine = context.getEngine();
-        history = context.getHistory();
+        switch (instrument)
+        {
+            case XAUUSD : return 0.000001;
+            case XAGUSD : return 0.00005;
+            default : return 0.001;
+        }
+    }
 
-        context.setSubscribedInstruments(java.util.Collections.singleton(Instrument.EURUSD), true);
-        context.setSubscribedInstruments(java.util.Collections.singleton(Instrument.GBPUSD), true);
+    private double getPriceDistance(Instrument instrument)
+    {
+        switch (instrument)
+        {
+            //case XAUUSD : return 0.000001;
+            //case XAGUSD : return 0.00005;
+            case EURJPY : return 0.039;
+            default : return 0.00039;
+        }
+    }
 
-        lastTickTime = history.getLastTick(Instrument.EURUSD).getTime();
-        lastProfitLossInPips_EURUSD = 0;
-        lastProfitLossInPips_GBPUSD = 0;
+    private double getPriceStep(Instrument instrument)
+    {
+        switch (instrument)
+        {
+            //case XAUUSD : return 0.000001;
+            //case XAGUSD : return 0.00005;
+            //case GBPCHF : return 0.029;
+            case EURJPY : return 0.009;
+            default : return 0.00009;
+        }
+    }
+
+    private double getTrailingStopRate(Instrument instrument)
+    {
+        switch (instrument)
+        {
+            //case XAUUSD : return 0.000001;
+            //case XAGUSD : return 0.00005;
+            //case GBPCHF : return 6.9;
+            default : return 4.9;
+        }
+    }
+    
+    private void subscribeToInstruments(Set<Instrument> instruments)
+    {
+        context.setSubscribedInstruments(instruments);
+        // wait 1 second for the instruments to get subscribed
+        int i = 10;
+        while (!context.getSubscribedInstruments().containsAll(instruments)) 
+        {
+            try 
+            {
+                Thread.sleep(100);
+            } 
+            catch (InterruptedException e) 
+            {
+                console.getOut().println(e.getMessage());
+            }
+            i--;
+        }
+    }
+
+    private void trailingOrders() throws JFException
+    {
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
+        {
+            Instrument inst = it.next();
+
+            if ((engine.getOrders(inst).size() == 1) &&
+                    (engine.getOrders(inst).get(0).getProfitLossInPips() > getTrailingStopRate(inst)))
+            {
+                //we can't update SL or TP more frequently than once per second
+                if(history.getLastTick(inst).getTime() - lastTickTime < 1000) {return;}
+                double lastBidPrice = history.getLastTick(inst).getBid();
+                double lastAskPrice = history.getLastTick(inst).getAsk();
+                if (engine.getOrders(inst).get(0).isLong())
+                {
+                    if ((lastBidPrice - engine.getOrders(inst).get(0).getStopLossPrice()) > (getPriceDistance(inst) +
+                            getPriceStep(inst)))
+                    {
+                        engine.getOrders(inst).get(0).setStopLossPrice(lastBidPrice - getPriceDistance(inst));
+                        lastTickTime = history.getLastTick(inst).getTime();
+                    }
+                }
+                else if (!engine.getOrders(inst).get(0).isLong())
+                {
+                    if ((Math.abs(lastAskPrice - engine.getOrders(inst).get(0).getStopLossPrice())) > (getPriceDistance(inst) +
+                            getPriceStep(inst)))
+                    {
+                        engine.getOrders(inst).get(0).setStopLossPrice(lastAskPrice + getPriceDistance(inst));
+                        lastTickTime = history.getLastTick(inst).getTime();
+                    }
+                }
+            }
+        }
     }
 
     @Override
-    protected void onJFBar(final Instrument instrument, final Period period,
-                           final IBar askBar, final IBar bidBar) throws JFException {}
+    protected void onJFStart(final IContext context) throws JFException
+    {
+        engine = context.getEngine();
+        console = context.getConsole();
+        this.context = context;
+        history = context.getHistory();
+
+        // make sure that the instruments have been subscribed
+        subscribeToInstruments(instruments);
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
+        {
+            Instrument inst = it.next();
+            lastTickTime = history.getLastTick(inst).getTime();
+        }
+    }
 
     @Override
     protected void onJFTick(final Instrument instrument, final ITick tick) throws JFException
     {
-        //================ Opening First Order EURUSD ===============
+        //====== Trailing Orders if there is no Suitable Leverage =======
 
-        if (engine.getOrders(Instrument.EURUSD).size() == 0)
+        double useOfLeverage = account.getUseOfLeverage();
+        while (useOfLeverage > 50)
         {
-            String label = getLabel(Instrument.EURUSD);
-
-            final OrderParams EURUSD_BUY = OrderParams
-                .forInstrument(Instrument.EURUSD)
-                .withOrderCommand(IEngine.OrderCommand.BUY)
-                .withAmount(baseAmound)
-                .withLabel(label + "First_Buy")
-                .build();
-
-            final SubmitParams submitEURUSD_BUY = SubmitParams
-                .withOrderParams(EURUSD_BUY)
-                .doOnStart(() -> System.out.println("Starting to submit order " + EURUSD_BUY.label()))
-                .doOnComplete(() -> System.out.println("Order " + EURUSD_BUY.label() + " was submitted."))
-                .retryOnReject(3, 1500L)
-                .build();
-
-            final OrderParams EURUSD_SELL = OrderParams
-                .forInstrument(Instrument.EURUSD)
-                .withOrderCommand(OrderCommand.SELL)
-                .withAmount(baseAmound)
-                .withLabel(label + "First_Sell")
-                .build();
-
-            final SubmitParams submitEURUSD_SELL = SubmitParams
-                .withOrderParams(EURUSD_SELL)
-                .doOnStart(() -> System.out.println("Starting to submit order " + EURUSD_SELL.label()))
-                .doOnComplete(() -> System.out.println("Order " + EURUSD_SELL.label() + " was submitted."))
-                .retryOnReject(3, 1500L)
-                .build();
-
-            int shift = 1;
-            IBar prevBar = history.getBar(Instrument.EURUSD, Period.ONE_HOUR, OfferSide.BID, shift);
-            double open = prevBar.getOpen();
-            double close = prevBar.getClose();
-            double delta = (open - close) / Instrument.EURUSD.getPipValue();
-            double startRate = 10.0;
-
-            if (delta < startRate) 
-            {
-                orderUtil.submitOrder(submitEURUSD_BUY);
-                lastProfitLossInPips_EURUSD = 0;
-            }
-            else
-            {
-                orderUtil.submitOrder(submitEURUSD_SELL);
-                lastProfitLossInPips_EURUSD = 0;
-            }
+            trailingOrders();
         }
 
-        //================ Opening First Order GBPUSD ===============
+        //===================== Opening First Order =====================
 
-        if (engine.getOrders(Instrument.GBPUSD).size() == 0)
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
         {
-            String label = getLabel(Instrument.GBPUSD);
+            Instrument inst = it.next();
+            String label = inst.name() + (counter++);
 
-            final OrderParams GBPUSD_BUY = OrderParams
-                    .forInstrument(Instrument.GBPUSD)
-                    .withOrderCommand(IEngine.OrderCommand.BUY)
-                    .withAmount(baseAmound)
-                    .withLabel(label + "First_Buy")
-                    .build();
-
-            final SubmitParams submitGBPUSD_BUY = SubmitParams
-                    .withOrderParams(GBPUSD_BUY)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + GBPUSD_BUY.label()))
-                    .doOnComplete(() -> System.out.println("Order " + GBPUSD_BUY.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            final OrderParams GBPUSD_SELL = OrderParams
-                    .forInstrument(Instrument.GBPUSD)
-                    .withOrderCommand(OrderCommand.SELL)
-                    .withAmount(baseAmound)
-                    .withLabel(label + "First_Sell")
-                    .build();
-
-            final SubmitParams submitGBPUSD_SELL = SubmitParams
-                    .withOrderParams(GBPUSD_SELL)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + GBPUSD_SELL.label()))
-                    .doOnComplete(() -> System.out.println("Order " + GBPUSD_SELL.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            int shift = 1;  //change open condition to abonacci style
-            IBar prevBar = history.getBar(Instrument.GBPUSD, Period.ONE_HOUR, OfferSide.BID, shift);
-            double open = prevBar.getOpen();
-            double close = prevBar.getClose();
-            double delta = (open - close) / Instrument.GBPUSD.getPipValue();
-            double startRate = 10.0;
-
-            if (delta < startRate)
+            if (engine.getOrders(inst).size() == 0)
             {
-                orderUtil.submitOrder(submitGBPUSD_BUY);
-                lastProfitLossInPips_GBPUSD = 0;
-            }
-            else
-            {
-                orderUtil.submitOrder(submitGBPUSD_SELL);
-                lastProfitLossInPips_GBPUSD = 0;
-            }
-        }
+                final OrderParams BUY = OrderParams
+                        .forInstrument(inst)
+                        .withOrderCommand(IEngine.OrderCommand.BUY)
+                        .withAmount(getMinAmount(inst))
+                        .withLabel(label + "FirstBuy")
+                        .build();
 
-        //============ Trailing EURUSD ===============
+                final SubmitParams submitBUY = SubmitParams
+                        .withOrderParams(BUY)
+                        .doOnStart(() -> System.out.println("Starting to submit order " + BUY.label()))
+                        .doOnComplete(() -> System.out.println("Order " + BUY.label() + " was submitted."))
+                        .retryOnReject(3, 1500L)
+                        .build();
 
-        double trailingStopRate_EURUSD = 4.9;  //to optimize by abonacci style
+                final OrderParams SELL = OrderParams
+                        .forInstrument(inst)
+                        .withOrderCommand(OrderCommand.SELL)
+                        .withAmount(getMinAmount(inst))
+                        .withLabel(label + "FirstSell")
+                        .build();
 
-        if ((engine.getOrders(Instrument.EURUSD).size() == 1) &&
-                (engine.getOrders(Instrument.EURUSD).get(0).getProfitLossInPips() > trailingStopRate_EURUSD))
-        {
-            if ((tick.getTime() - lastTickTime > 1000) &&
-                    ((engine.getOrders(Instrument.EURUSD).get(0).getProfitLossInPips() - lastProfitLossInPips_EURUSD) >
-                            0.9))
-            {
-                double priceDistance = 0.00039; //to optimize by abonacci style
+                final SubmitParams submitSELL = SubmitParams
+                        .withOrderParams(SELL)
+                        .doOnStart(() -> System.out.println("Starting to submit order " + SELL.label()))
+                        .doOnComplete(() -> System.out.println("Order " + SELL.label() + " was submitted."))
+                        .retryOnReject(3, 1500L)
+                        .build();
 
-                if (engine.getOrders(Instrument.EURUSD).get(0).isLong())
+                int shift = 1;
+                IBar prevBar = history.getBar(inst, Period.ONE_HOUR, OfferSide.BID, shift);
+                double open = prevBar.getOpen();
+                double close = prevBar.getClose();
+                double delta = (open - close) / inst.getPipValue();
+                double startRate = 10.0;
+
+                if (delta < startRate)
                 {
-                    engine.getOrders(Instrument.EURUSD).get(0).setStopLossPrice(tick.getBid() - priceDistance);
+                    orderUtil.submitOrder(submitBUY);
                 }
-                else if (!engine.getOrders(Instrument.EURUSD).get(0).isLong())
+                else
                 {
-                    engine.getOrders(Instrument.EURUSD).get(0).setStopLossPrice(tick.getAsk() + priceDistance);
+                    orderUtil.submitOrder(submitSELL);
                 }
-
-                lastTickTime = tick.getTime();
-                lastProfitLossInPips_EURUSD = engine.getOrders(Instrument.EURUSD).get(0).getProfitLossInPips();
             }
         }
 
-        //============ Trailing GBPUSD ===============
+        //================ Averaging Orders ================
 
-        double trailingStopRate_GBPUSD = 4.9;  //to optimize by abonacci style
-
-        if ((engine.getOrders(Instrument.GBPUSD).size() == 1) &&
-                (engine.getOrders(Instrument.GBPUSD).get(0).getProfitLossInPips() > trailingStopRate_GBPUSD))
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
         {
-            if ((tick.getTime() - lastTickTime > 1000) &&
-                    ((engine.getOrders(Instrument.GBPUSD).get(0).getProfitLossInPips() - lastProfitLossInPips_GBPUSD) >
-                            0.9))
-            {
-                double priceDistance = 0.00039; //to optimize by abonacci style
+            Instrument inst = it.next();
+            String label = inst.name() + (counter++);
+            double averagingRate = -24.9;
 
-                if (engine.getOrders(Instrument.GBPUSD).get(0).isLong())
+            if ((engine.getOrders(inst).size() == 1) &&
+                    (engine.getOrders(inst).get(0).getProfitLossInPips() < averagingRate))
+            {
+                double amount = engine.getOrders(inst).get(0).getAmount();
+
+                final OrderParams BUYA = OrderParams
+                        .forInstrument(inst)
+                        .withOrderCommand(OrderCommand.BUY)
+                        .withAmount(amount)
+                        .withLabel(label + "ABuy")
+                        .build();
+
+                final SubmitParams submitBUYA = SubmitParams
+                        .withOrderParams(BUYA)
+                        .doOnStart(() -> System.out.println("Starting to submit order " + BUYA.label()))
+                        .doOnComplete(() -> System.out.println("Order " + BUYA.label() + " was submitted."))
+                        .retryOnReject(3, 1500L)
+                        .build();
+
+                final OrderParams SELLA = OrderParams
+                        .forInstrument(inst)
+                        .withOrderCommand(OrderCommand.SELL)
+                        .withAmount(amount)
+                        .withLabel(label + "ASell")
+                        .build();
+
+                final SubmitParams submitSELLA = SubmitParams
+                        .withOrderParams(SELLA)
+                        .doOnStart(() -> System.out.println("Starting to submit order " + SELLA.label()))
+                        .doOnComplete(() -> System.out.println("Order " + SELLA.label() + " was submitted."))
+                        .retryOnReject(3, 1500L)
+                        .build();
+
+                if (engine.getOrders(inst).get(0).isLong())
                 {
-                    engine.getOrders(Instrument.GBPUSD).get(0).setStopLossPrice(tick.getBid() - priceDistance);
+                    orderUtil.submitOrder(submitBUYA);
                 }
-                else if (!engine.getOrders(Instrument.GBPUSD).get(0).isLong())
+                else if (!engine.getOrders(inst).get(0).isLong())
                 {
-                    engine.getOrders(Instrument.GBPUSD).get(0).setStopLossPrice(tick.getAsk() + priceDistance);
+                    orderUtil.submitOrder(submitSELLA);
                 }
-
-                lastTickTime = tick.getTime();
-                lastProfitLossInPips_GBPUSD = engine.getOrders(Instrument.GBPUSD).get(0).getProfitLossInPips();
             }
         }
 
-        //================ Averaging EURUSD ================
+        //====================== Merging Orders =====================
 
-        double averagingRate_EURUSD = -24.9; //to optimize by abonacci style
-
-        if ((engine.getOrders(Instrument.EURUSD).size() == 1) &&
-            (engine.getOrders(Instrument.EURUSD).get(0).getProfitLossInPips() < averagingRate_EURUSD))
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
         {
-            double amount = engine.getOrders(Instrument.EURUSD).get(0).getAmount();
+            Instrument inst = it.next();
+            String label = inst.name() + (counter++);
 
-            String label = getLabel(Instrument.EURUSD);
-
-            final OrderParams EURUSD_BUY_A = OrderParams
-                    .forInstrument(Instrument.EURUSD)
-                    .withOrderCommand(OrderCommand.BUY)
-                    .withAmount(amount)
-                    .withLabel(label + "A_Buy")
-                    .build();
-
-            final SubmitParams submitEURUSD_BUY_A = SubmitParams
-                    .withOrderParams(EURUSD_BUY_A)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + EURUSD_BUY_A.label()))
-                    .doOnComplete(() -> System.out.println("Order " + EURUSD_BUY_A.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            final OrderParams EURUSD_SELL_A = OrderParams
-                    .forInstrument(Instrument.EURUSD)
-                    .withOrderCommand(OrderCommand.SELL)
-                    .withAmount(amount)
-                    .withLabel(label + "A_Sell")
-                    .build();
-
-            final SubmitParams submitEURUSD_SELL_A = SubmitParams
-                    .withOrderParams(EURUSD_SELL_A)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + EURUSD_SELL_A.label()))
-                    .doOnComplete(() -> System.out.println("Order " + EURUSD_SELL_A.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            if (engine.getOrders(Instrument.EURUSD).get(0).isLong())
+            if (engine.getOrders(inst).size() == 2)
             {
-                orderUtil.submitOrder(submitEURUSD_BUY_A);
-            }
-            else if (!engine.getOrders(Instrument.EURUSD).get(0).isLong())
-            {
-                orderUtil.submitOrder(submitEURUSD_SELL_A);
+                List<IOrder> mergeableOrders =
+                        Arrays.asList(engine.getOrders(inst).get(0), engine.getOrders(inst).get(1));
+
+                MergeParams merge_buy = new MergeParams
+                        .Builder(label + "MergedBuy", mergeableOrders)
+                        .build();
+
+                MergeParams merge_sell = new MergeParams
+                        .Builder(label + "MergedSell", mergeableOrders)
+                        .build();
+
+                if ((engine.getOrders(inst).get(0).isLong()) && (engine.getOrders(inst).get(1).isLong()))
+                {
+                    orderUtil.mergeOrders(merge_buy);
+                }
+                if (!(engine.getOrders(inst).get(0).isLong()) && !(engine.getOrders(inst).get(1).isLong()))
+                {
+                    orderUtil.mergeOrders(merge_sell);
+                }
             }
         }
 
-        //================ Averaging GBPUSD ================
+        //============ Trailing Orders ===============
 
-        double averagingRate_GBPUSD = -24.9; //to optimize by abonacci style
-
-        if ((engine.getOrders(Instrument.GBPUSD).size() == 1) &&
-                (engine.getOrders(Instrument.GBPUSD).get(0).getProfitLossInPips() < averagingRate_GBPUSD))
+        for (Iterator<Instrument> it = instruments.iterator(); it.hasNext();)
         {
-            double amount = engine.getOrders(Instrument.GBPUSD).get(0).getAmount();
+            Instrument inst = it.next();
 
-            String label = getLabel(Instrument.GBPUSD);
-
-            final OrderParams GBPUSD_BUY_A = OrderParams
-                    .forInstrument(Instrument.GBPUSD)
-                    .withOrderCommand(OrderCommand.BUY)
-                    .withAmount(amount)
-                    .withLabel(label + "A_Buy")
-                    .build();
-
-            final SubmitParams submitGBPUSD_BUY_A = SubmitParams
-                    .withOrderParams(GBPUSD_BUY_A)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + GBPUSD_BUY_A.label()))
-                    .doOnComplete(() -> System.out.println("Order " + GBPUSD_BUY_A.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            final OrderParams GBPUSD_SELL_A = OrderParams
-                    .forInstrument(Instrument.GBPUSD)
-                    .withOrderCommand(OrderCommand.SELL)
-                    .withAmount(amount)
-                    .withLabel(label + "A_Sell")
-                    .build();
-
-            final SubmitParams submitGBPUSD_SELL_A = SubmitParams
-                    .withOrderParams(GBPUSD_SELL_A)
-                    .doOnStart(() -> System.out.println("Starting to submit order " + GBPUSD_SELL_A.label()))
-                    .doOnComplete(() -> System.out.println("Order " + GBPUSD_SELL_A.label() + " was submitted."))
-                    .retryOnReject(3, 1500L)
-                    .build();
-
-            if (engine.getOrders(Instrument.GBPUSD).get(0).isLong())
+            if ((engine.getOrders(inst).size() == 1) &&
+                    (engine.getOrders(inst).get(0).getProfitLossInPips() > getTrailingStopRate(inst)))
             {
-                orderUtil.submitOrder(submitGBPUSD_BUY_A);
-            }
-            else if (!engine.getOrders(Instrument.GBPUSD).get(0).isLong())
-            {
-                orderUtil.submitOrder(submitGBPUSD_SELL_A);
-            }
-        }
-
-        //====================== Merging EURUSD =====================
-
-        if (engine.getOrders(Instrument.EURUSD).size() == 2)
-        {
-            List<IOrder> mergeableOrders = Arrays.asList(engine.getOrders(Instrument.EURUSD).get(0),
-                    engine.getOrders(Instrument.EURUSD).get(1));
-
-            String label = getLabel(Instrument.EURUSD);
-
-            MergeParams merge_buy = new MergeParams
-                    .Builder(label + "_Merged_Buy", mergeableOrders)
-                    .build();
-
-            MergeParams merge_sell = new MergeParams
-                    .Builder(label + "_Merged_Sell", mergeableOrders)
-                    .build();
-
-            if ((engine.getOrders(Instrument.EURUSD).get(0).isLong()) &&
-                    (engine.getOrders(Instrument.EURUSD).get(1).isLong()))
-            {
-                orderUtil.mergeOrders(merge_buy);
-                lastProfitLossInPips_EURUSD = 0;
-            }
-            if (!(engine.getOrders(Instrument.EURUSD).get(0).isLong()) &&
-                    !(engine.getOrders(Instrument.EURUSD).get(1).isLong()))
-            {
-                orderUtil.mergeOrders(merge_sell);
-                lastProfitLossInPips_EURUSD = 0;
-            }
-        }
-
-        //====================== Merging GBPUSD =====================
-
-        if (engine.getOrders(Instrument.GBPUSD).size() == 2)
-        {
-            List<IOrder> mergeableOrders = Arrays.asList(engine.getOrders(Instrument.GBPUSD).get(0),
-                    engine.getOrders(Instrument.GBPUSD).get(1));
-
-            String label = getLabel(Instrument.GBPUSD);
-
-            MergeParams merge_buy = new MergeParams
-                    .Builder(label + "_Merged_Buy", mergeableOrders)
-                    .build();
-
-            MergeParams merge_sell = new MergeParams
-                    .Builder(label + "_Merged_Sell", mergeableOrders)
-                    .build();
-
-            if ((engine.getOrders(Instrument.GBPUSD).get(0).isLong()) &&
-                    (engine.getOrders(Instrument.GBPUSD).get(1).isLong()))
-            {
-                orderUtil.mergeOrders(merge_buy);
-                lastProfitLossInPips_GBPUSD = 0;
-            }
-            if (!(engine.getOrders(Instrument.GBPUSD).get(0).isLong()) &&
-                    !(engine.getOrders(Instrument.GBPUSD).get(1).isLong()))
-            {
-                orderUtil.mergeOrders(merge_sell);
-                lastProfitLossInPips_GBPUSD = 0;
+                //we can't update SL or TP more frequently than once per second
+                if(history.getLastTick(inst).getTime() - lastTickTime < 1000) {return;}
+                double lastBidPrice = history.getLastTick(inst).getBid();
+                double lastAskPrice = history.getLastTick(inst).getAsk();
+                if (engine.getOrders(inst).get(0).isLong())
+                {
+                    if ((lastBidPrice - engine.getOrders(inst).get(0).getStopLossPrice()) > (getPriceDistance(inst) +
+                            getPriceStep(inst)))
+                    {
+                        engine.getOrders(inst).get(0).setStopLossPrice(lastBidPrice - getPriceDistance(inst));
+                        lastTickTime = history.getLastTick(inst).getTime();
+                    }
+                }
+                else if (!engine.getOrders(inst).get(0).isLong())
+                {
+                    if ((Math.abs(lastAskPrice - engine.getOrders(inst).get(0).getStopLossPrice())) > (getPriceDistance(inst) +
+                            getPriceStep(inst)))
+                    {
+                        engine.getOrders(inst).get(0).setStopLossPrice(lastAskPrice + getPriceDistance(inst));
+                        lastTickTime = history.getLastTick(inst).getTime();
+                    }
+                }
             }
         }
     }
 
-    private String getLabel(Instrument instrument)
+    @Override
+    protected void onJFBar(final Instrument instrument, final Period period,
+        final IBar askBar, final IBar bidBar) throws JFException
+    {}
+
+    @Override
+    protected void onJFMessage(final IMessage message) throws JFException
+    {}
+
+    @Override
+    protected void onJFAccount(final IAccount account) throws JFException
     {
-        String label = instrument.name();
-        label = label + (counter++);
-        label = label.toUpperCase();
-        return label;
+        this.account = account;
     }
 
     @Override
-    protected void onJFMessage(final IMessage message) throws JFException {}
-
-    @Override
-    protected void onJFStop() throws JFException {}
-
-    @Override
-    protected void onJFAccount(final IAccount account) throws JFException {}
+    protected void onJFStop() throws JFException
+    {}
 }

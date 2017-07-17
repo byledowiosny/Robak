@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.dukascopy.dds4:netty-transport-client:0.4.64">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds4/netty-transport-client/0.4.64/netty-transport-client-0.4.64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds4/netty-transport-client/0.4.64/netty-transport-client-0.4.64-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds4/netty-transport-client/0.4.64/netty-transport-client-0.4.64-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

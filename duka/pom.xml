@@ -8,8 +8,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.dukascopy.dds2</groupId>
-	<artifactId>JForex-SDK</artifactId>
-    <version>2.45.61</version>
+	<artifactId>JForex-3-SDK</artifactId>
+    <version>3.2.1</version>
 	<organization>
 		<name>Dukascopy Bank SA</name>
 		<url>http://www.dukascopy.com</url>
@@ -28,7 +28,7 @@
 			<!-- find the latest available version here:
 				http://www.dukascopy.com/client/jforexlib/publicrepo/com/dukascopy/dds2/DDS2-jClient-JForex/
 			-->
-			<version>2.45.61</version>
+			<version>3.2.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>com.dukascopy.api</groupId>
 			<artifactId>JForex-API</artifactId>
-			<version>2.12.46</version>
+			<version>2.13.37</version>
 			<classifier>sources</classifier>
 		</dependency>
 		<dependency>
@@ -92,9 +92,9 @@
 							</archive>
 							<appendAssemblyId>false</appendAssemblyId>
 							<attach>false</attach>
-							<artifactId>order-table-plugin</artifactId>
+							<!--artifactId>order-table-plugin</artifactId-->
 							<finalName>OrderTable</finalName>
-							<packaging>jar</packaging>
+							<!--packaging>jar</packaging-->
 							<descriptors>
 								<descriptor>
 									assemblies\jar-assembly-order-table-plugin.xml
@@ -122,9 +122,9 @@
 							</archive>
 							<appendAssemblyId>false</appendAssemblyId>
 							<attach>false</attach>
-							<artifactId>summarizer-plugin</artifactId>
+							<!--artifactId>summarizer-plugin</artifactId-->
 							<finalName>IndicatorSummarizer</finalName>
-							<packaging>jar</packaging>
+							<!--packaging>jar</packaging-->
 							<descriptors>
 								<descriptor>
 									assemblies\jar-assembly-summarizer-plugin.xml
@@ -152,9 +152,9 @@
 							</archive>
 							<appendAssemblyId>false</appendAssemblyId>
 							<attach>false</attach>
-							<artifactId>strategy-manager</artifactId>
+							<!--artifactId>strategy-manager</artifactId-->
 							<finalName>StrategyManager</finalName>
-							<packaging>jar</packaging>
+							<!--packaging>jar</packaging-->
 							<descriptors>
 								<descriptor>
 									assemblies\jar-assembly-strategy-manager-plugin.xml
@@ -186,9 +186,9 @@
 							</archive>
 							<appendAssemblyId>false</appendAssemblyId>
 							<attach>false</attach>
-							<artifactId>order-table-plugin-sdk</artifactId>
+							<!--artifactId>order-table-plugin-sdk</artifactId-->
 							<finalName>OrderTableSdk</finalName>
-							<packaging>jar</packaging>
+							<!--packaging>jar</packaging-->
 							<descriptors>
 								<descriptor>
 									assemblies\jar-assembly-order-table-sdk.xml

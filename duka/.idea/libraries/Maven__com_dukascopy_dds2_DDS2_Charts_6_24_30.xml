@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.dukascopy.dds2:DDS2-Charts:6.24.30">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds2/DDS2-Charts/6.24.30/DDS2-Charts-6.24.30.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds2/DDS2-Charts/6.24.30/DDS2-Charts-6.24.30-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/dds2/DDS2-Charts/6.24.30/DDS2-Charts-6.24.30-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

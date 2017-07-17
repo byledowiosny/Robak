@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: ta-lib:ta-lib:0.4.4dc">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ta-lib/ta-lib/0.4.4dc/ta-lib-0.4.4dc.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/ta-lib/ta-lib/0.4.4dc/ta-lib-0.4.4dc-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/ta-lib/ta-lib/0.4.4dc/ta-lib-0.4.4dc-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

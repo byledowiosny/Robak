@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.dukascopy.connector:MQL4Connector:2.13.31">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/connector/MQL4Connector/2.13.31/MQL4Connector-2.13.31.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/connector/MQL4Connector/2.13.31/MQL4Connector-2.13.31-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/dukascopy/connector/MQL4Connector/2.13.31/MQL4Connector-2.13.31-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

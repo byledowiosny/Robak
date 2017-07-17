@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.fife:DDS2-TextEditor:1.27.34">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/fife/DDS2-TextEditor/1.27.34/DDS2-TextEditor-1.27.34.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/fife/DDS2-TextEditor/1.27.34/DDS2-TextEditor-1.27.34-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/fife/DDS2-TextEditor/1.27.34/DDS2-TextEditor-1.27.34-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
